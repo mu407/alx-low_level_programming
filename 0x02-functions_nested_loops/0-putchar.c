@@ -1,21 +1,22 @@
-#include <stdio.h>
-#include <unistd.h>
-#include "main.h"
+#include"main.h"
+
 /**
-* main - print all base 10 digits
-*
-* Return: 0
+ * main - Entry point
+ *
+ * Description: prints _putchar using putchar prototype
+ *
+ * Return: Always 0 (Success)
 */
+
 int main(void)
 {
-	char *sh = "_putchar";
+	char str[] = "_putchar";
+	int ch;
 
-	while (*sh)
-	{
-		_putchar(*sh);
-		sh++;
-	}
+	for (ch = 0; ch < 8; ++ch)
+		_putchar(str[ch]);
 	_putchar('\n');
 
 	return (0);
 }
+
