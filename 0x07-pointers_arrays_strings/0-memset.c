@@ -1,49 +1,21 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
 
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
+ * *_memset - fills memory with a constant byte
+ * @s: memory area to be filled
+ * @b: char to copy
+ * @n: number of times to copy b
  *
- * Return: Nothing.
-*/
-
-void simple_print_buffer(char *buffer, unsigned int size)
+ * Return: pointer to the memory area s
+ */
+char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
-	i = 0;
-	while (i < size)
+	for (i = 0; i < n; i++)
 	{
-		if (i % 10)
-		{
-			printf(" ");
-		}
-		if (!(i % 10) && i)
-		{
-			printf("\n");
-		}
-		printf("0x%02x", buffer[i]);
-		i++;
+		s[i] = b;
 	}
-	printf("\n");
-}
 
-
-/**
- * main - check the code for ALX School students.
- *
- * Return: Always 0.
-*/
-
-int main(void)
-{
-	char buffer[98] = {0x00};
-
-	simple_print_buffer(buffer, 98);
-	_memset(buffer, 0x01, 95);
-	printf("-------------------------------------------------\n");
-	simple_print_buffer(buffer, 98);
-	return (0);
+	return (s);
 }
