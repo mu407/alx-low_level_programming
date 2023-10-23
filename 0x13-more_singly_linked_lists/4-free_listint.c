@@ -10,9 +10,9 @@ void free_listint(listint_t *head)
 
     while (head)
     {
-        current = head->next;   // Store the next node in the list.
-        free(head);             // Free the current node.
-        head = current;         // Move to the next node in the list.
+        current = head->next;
+        free(head);
+        head = current;
     }
 }
 
