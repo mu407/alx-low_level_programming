@@ -9,9 +9,9 @@
  */
 int delete_node_at_index(listint_t **head, unsigned int index)
 {
-    listint_t *current_node = *head; // Pointer to the current node.
-    listint_t *previous_node = NULL; // Pointer to the previous node.
-    unsigned int i = 0; // Index counter.
+    listint_t *current_node = *head;
+    listint_t *previous_node = NULL;
+    unsigned int i = 0;
 
     // Check if the list is empty.
     if (*head == NULL)
@@ -20,25 +20,24 @@ int delete_node_at_index(listint_t **head, unsigned int index)
     // If the node to delete is the first node (index 0).
     if (index == 0)
     {
-        *head = (*head)->next; // Update the head to the next node.
-        free(current_node); // Free the memory of the deleted node.
-        return (1); // Deletion successful.
+        *head = (*head)->next;
+        free(current_node);
+        return (1);
     }
 
     // Traverse the list to find the node before the one to delete.
     while (i < index - 1)
     {
         if (!current_node || !(current_node->next))
-            return (-1); // Index is out of bounds.
-        previous_node = current_node; // Save the previous node.
-        current_node = current_node->next; // Move to the next node.
+            return (-1);
+        previous_node = current_node;
+        current_node = current_node->next;
         i++;
     }
 
-    // Adjust the pointers to skip the node to be deleted.
     previous_node->next = current_node->next;
-    free(current_node); // Free the memory of the deleted node.
+    free(current_node);
 
-    return (1); // Deletion successful.
+    return (1);
 }
 
