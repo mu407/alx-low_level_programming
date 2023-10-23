@@ -9,17 +9,14 @@
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	unsigned int current_index = 0;  // Variable to keep track of the current index.
-	listint_t *current_node = head;   // Variable to traverse the linked list.
+	unsigned int current_index = 0;
+	listint_t *current_node = head;
 
-	// Traverse the list until the desired index is reached or the end of the list is reached.
 	while (current_node && current_index < index)
 	{
 		current_node = current_node->next;
 		current_index++;
 	}
 
-	// Return the node at the specified index, or NULL if it doesn't exist.
 	return (current_node ? current_node : NULL);
 }
-
