@@ -13,11 +13,11 @@ void free_listint2(listint_t **head)
 
 	while (*head)
 	{
-		temp = (*head)->next; // Store the next node for later access.
-		free(*head); // Free the current node.
-		*head = temp; // Move the head to the next node.
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
 	}
 
-	*head = NULL; // Set the head pointer to NULL to indicate an empty list.
+	*head = NULL;
 }
 
