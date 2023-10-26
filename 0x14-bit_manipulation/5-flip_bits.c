@@ -2,11 +2,12 @@
 #include <stdio.h>
 
 /**
- * flip_bits - Calculate the number of bits needed to convert one number to another.
+ * flip_bits - Calculate the number of bits needed to convert n to m.
  * @n: The first number.
  * @m: The second number to convert to.
- * Return: The number of bits that need to be flipped.
+ * Return: The number of bits to be flipped.
  */
+
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int difference;
