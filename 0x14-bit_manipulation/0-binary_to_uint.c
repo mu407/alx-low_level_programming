@@ -4,25 +4,25 @@
 /**
  * binary_to_uint - Convert a binary string to an unsigned int.
  * @b: The binary string to convert.
- * Return: The converted decimal number or 0 if there are unconvertible characters.
+ * Return: The converted decimal number or 0 if there are unconvertible
  */
-unsigned int binary_to_uint(const char *b)
+unsigned int binary_to_uint(const char *p)
 {
 	unsigned int total, power;
 	int len;
 
-	if (b == NULL)
+	if (p == NULL)
 		return (0);
 
-	for (len = 0; b[len]; len++)
+	for (len = 0; p[len]; len++)
 	{
-		if (b[len] != '0' && b[len] != '1')
+		if (p[len] != '0' && p[len] != '1')
 			return (0);
 	}
 
 	for (power = 1, total = 0, len--; len >= 0; len--, power *= 2)
 	{
-		if (b[len] == '1')
+		if (p[len] == '1')
 			total += power;
 	}
 
