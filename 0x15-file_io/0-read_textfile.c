@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * read_textfile - Reads a text file and writes its content to the standard output.
+ * read_textfile - Reads a text file and writes its content
  * @filename: A pointer to the name of the file.
  * @letters: The number of letters to read and write.
  *
@@ -36,4 +36,3 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	return (write_bytes);
 }
-
