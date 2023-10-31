@@ -9,30 +9,34 @@
  * Return: If the function fails or filename is NULL - 0.
  *         Otherwise, the actual number of bytes read and written.
  */
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t file_descriptor, read_bytes, write_bytes;
-	char *buffer;
+	ssize_t fd, rb, wb;
+	char *buf;
 
 	if (filename == NULL)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
+	buf = malloc(sizeof(char) * letters);
+	if (buf == NULL)
 		return (0);
 
-	file_descriptor = open(filename, O_RDONLY);
-	read_bytes = read(file_descriptor, buffer, letters);
-	write_bytes = write(STDOUT_FILENO, buffer, read_bytes);
+	fd = open(filename, O_RDONLY);
+	rb = read(fd, buf, letters);
+	wb = write(STDOUT_FILENO, buf, rb);
 
-	if (file_descriptor == -1 || read_bytes == -1 || write_bytes == -1 || write_bytes != read_bytes)
+	if (fd == -1 || rb == -1 || wb == -1 || wb != rb)
 	{
-		free(buffer);
+		free(buf);
 		return (0);
 	}
 
-	free(buffer);
-	close(file_descriptor);
+	free(buf);
+	close(fd);
 
-	return (write_bytes);
+	return (wb);
 }
